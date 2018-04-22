@@ -1,0 +1,8 @@
+https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/
+
+mklink /H Link Target
+
+/J for hard links to folder
+/H for hard links to files
+/D for soft links to folder
+no params for soft link

@@ -1,0 +1,77 @@
+[user]
+	name = Walt Hengely
+	email = whengely@igsenergy.com
+
+###############
+# MERGE STUFF #
+###############
+[merge]
+	tool = bc4
+
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "bc4"]
+	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+
+##############
+# DIFF STUFF #
+##############
+[diff]
+	tool = bc4
+[difftool]
+	prompt = false
+	keepBackup = false
+
+[difftool "bc4"]
+	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\"
+[difftool "code"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+###########
+# ALIASES #
+###########
+
+# you definitely want to use the full package of cmder as your terminal.  Or a real terminal on linux 
+[alias]
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+  co = checkout
+  c = commit -a
+  e = config -e --global
+  dev = "!git checkout develop"
+  master = "!git checkout master"
+
+  #list log easy to read
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  #list log with files changed
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  #list with no colors if piping
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+
+
+  # Create a new branch from jira ticket name
+  ticket = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"feature/$CLEANED\";};f"
+  hotfix = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"hotfix/$CLEANED\";};f"
+
+	# Push the current branch to the remote "origin", and set it to track 
+	# the upstream branch 
+	publish = "!git push -u origin $(git branch-name)" 
+
+	# Delete the remote version of the current branch 
+	unpublish = "!git push origin :$(git branch-name)"
+
+	# Delete any branches that have been merged
+	# See also: https://gist.github.com/robmiller/5133264
+	delete-merged-branches-develop = "!git checkout develop && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	delete-merged-branches-master = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # Prune remote
+	rpo = remote prune origin
+
+  # If you want pull request aliases to work you need to download the following
+  #https://github.com/Microsoft/vsts-cli
+  create-pull-request-for-develop = "!f() { exec vsts code pr create --auto-complete -t develop \"$@\";};f"
+  create-pull-request-for-master = "!f() { exec vsts code pr create --auto-complete -t master \"$@\";};f"
+	pull-request = "!f() { exec vsts code pr \"$@\"; }; f"
+	repo = "!f() { exec vsts code repo \"$@\"; }; f"

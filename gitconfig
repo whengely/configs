@@ -51,8 +51,8 @@
 
 
   # Create a new branch from jira ticket name
-  ticket = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"wh/feature/$CLEANED\";};f"
-  hotfix = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"wh/hotfix/$CLEANED\";};f"
+  ticket = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"wh/$CLEANED\";};f"
+  hotfix = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"hotfix/$CLEANED\";};f"
 
 	# Push the current branch to the remote "origin", and set it to track 
 	# the upstream branch 

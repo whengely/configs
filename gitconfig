@@ -71,7 +71,7 @@
 
   # If you want pull request aliases to work you need to download the following
   #https://github.com/Microsoft/vsts-cli
-  create-pull-request-for-develop = "!f() { exec vsts code pr create --auto-complete --delete-source-branch -t develop \"$@\";};f"
-  create-pull-request-for-master = "!f() { exec vsts code pr create --auto-complete --delete-source-branch -t master \"$@\";};f"
+  create-pull-request-for-develop = "!f() { exec vsts code pr create --auto-complete --delete-source-branch --squash -t develop \"$@\";};f"
+  create-pull-request-for-master = "!f() { exec vsts code pr create --auto-complete --delete-source-branch --squash -t master \"$@\";};f"
 	pull-request = "!f() { exec vsts code pr \"$@\"; }; f"
 	repo = "!f() { exec vsts code repo \"$@\"; }; f"

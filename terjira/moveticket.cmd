@@ -1,4 +1,4 @@
 @ECHO OFF
 
-call ./jiraurl %1
-call ./jiratrans %*
+call jiraurl %1
+call jiratrans %*

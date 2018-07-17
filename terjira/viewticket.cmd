@@ -1,4 +1,4 @@
 @ECHO OFF
 
+call jiraissue %*
 call jiraurl %1
-call jiraissue %1

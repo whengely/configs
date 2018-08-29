@@ -1,5 +1,4 @@
 #!/bin/bash
 
-./jiraissue.sh $1
-./jiraurl.sh $1
-
+jiraissue.sh $1
+jiraurl.sh $1

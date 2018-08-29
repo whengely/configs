@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/whengely/.oh-my-zsh"
+export ZSH="/home/whengely/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -62,7 +62,7 @@ ZSH_THEME="muse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ssh-agent, gitfast, npm, screen
+  ssh-agent gitfast npm screen
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -96,6 +96,7 @@ export PATH=$PATH:/home/whengely/lib/vsts-cli/bin
 export EDITOR=vim
 export BROWSER=/mnt/c/Google/Chrome/Application/chrome.exe
 export BRANCHPREFIX=wh
+
 if [ -d "/mnt/c/a/configs" ] ; then   
   PATH="/mnt/c/a/configs/terjira:$PATH" 
 fi

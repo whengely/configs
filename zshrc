@@ -96,6 +96,7 @@ export PATH=$PATH:/home/whengely/lib/vsts-cli/bin
 export EDITOR=vim
 export BROWSER=/mnt/c/Google/Chrome/Application/chrome.exe
 export BRANCHPREFIX=wh
+export proj=/mnt/c/a/
 
 if [ -d "/mnt/c/a/configs" ] ; then   
   PATH="/mnt/c/a/configs/terjira:$PATH" 

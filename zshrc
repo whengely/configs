@@ -100,3 +100,5 @@ export BRANCHPREFIX=wh
 if [ -d "/mnt/c/a/configs" ] ; then   
   PATH="/mnt/c/a/configs/terjira:$PATH" 
 fi
+
+alias gb="git branch -a"

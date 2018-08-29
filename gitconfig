@@ -1,3 +1,5 @@
+[core]
+  autocrlf = true
 [user]
 	name = Walt Hengely
 	email = whengely@igsenergy.com

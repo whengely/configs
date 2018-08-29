@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="oxide"
+ZSH_THEME="muse"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -95,6 +95,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export PATH=$PATH:/home/whengely/lib/vsts-cli/bin
 export EDITOR=vim
 export BROWSER=/mnt/c/Google/Chrome/Application/chrome.exe
+export BRANCHPREFIX=wh
 if [ -d "/mnt/c/a/configs" ] ; then   
   PATH="/mnt/c/a/configs/terjira:$PATH" 
 fi

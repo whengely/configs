@@ -1,5 +1,6 @@
 [core]
   autocrlf = true
+  pager = cat
 [user]
 	name = Walt Hengely
 	email = whengely@igsenergy.com

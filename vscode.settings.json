@@ -10,4 +10,5 @@
     "importSorter.importStringConfiguration.quoteMark": "single",
     "importSorter.importStringConfiguration.trailingComma": "always",
     "window.titleBarStyle": "custom",
+    "workbench.editor.enablePreview": false
 }

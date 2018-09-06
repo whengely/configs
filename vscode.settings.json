@@ -17,5 +17,6 @@
     "window.titleBarStyle": "custom",
     "workbench.editor.enablePreview": false,
     "explorer.openEditors.visible": 0,
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "breadcrumbs.enabled": false
 }

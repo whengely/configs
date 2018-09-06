@@ -65,6 +65,8 @@ plugins=(
   ssh-agent gitfast npm screen
 )
 
+zstyle :omz:plugins:ssh-agent identities id_rsa whengelygmail_id_rsa
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

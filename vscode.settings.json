@@ -4,6 +4,10 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.fontSize": 13,
+    "editor.rulers": [
+        160
+    ],
+    "editor.tabSize": 2,
     "importSorter.generalConfiguration.sortOnBeforeSave": true,
     "importSorter.importStringConfiguration.hasSemicolon": false,
     "importSorter.importStringConfiguration.tabSize": 2,
@@ -11,5 +15,7 @@
     "importSorter.importStringConfiguration.quoteMark": "single",
     "importSorter.importStringConfiguration.trailingComma": "always",
     "window.titleBarStyle": "custom",
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "explorer.openEditors.visible": 0,
+    "workbench.iconTheme": "material-icon-theme"
 }

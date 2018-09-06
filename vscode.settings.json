@@ -18,5 +18,6 @@
     "workbench.editor.enablePreview": false,
     "explorer.openEditors.visible": 0,
     "workbench.iconTheme": "material-icon-theme",
-    "breadcrumbs.enabled": false
+    "breadcrumbs.enabled": false,
+    "php.suggest.basic": false
 }

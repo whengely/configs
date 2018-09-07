@@ -15,7 +15,7 @@
 	prompt = false
 	keepBackup = false
 [mergetool "bc4"]
-	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	cmd = \"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	trustExitCode = true
 
 ##############

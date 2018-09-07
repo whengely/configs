@@ -14,6 +14,7 @@
     "importSorter.importStringConfiguration.tabType": "space",
     "importSorter.importStringConfiguration.quoteMark": "single",
     "importSorter.importStringConfiguration.trailingComma": "always",
+    "importSorter.sortConfiguration.joinImportPaths": true,
     "window.titleBarStyle": "custom",
     "workbench.editor.enablePreview": false,
     "explorer.openEditors.visible": 0,

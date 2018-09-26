@@ -15,6 +15,7 @@
     "importSorter.importStringConfiguration.quoteMark": "single",
     "importSorter.importStringConfiguration.trailingComma": "always",
     "importSorter.sortConfiguration.joinImportPaths": true,
+    "importSorter.generalConfiguration.exclude": ["styled-components.tsx?"],
     "window.titleBarStyle": "custom",
     "workbench.editor.enablePreview": false,
     "explorer.openEditors.visible": 0,

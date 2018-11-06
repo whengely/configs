@@ -89,12 +89,15 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-export PATH=$PATH:/home/whengely/lib/vsts-cli/bin
+export PATH=$PATH:~/lib/vsts-cli/bin:~/.nvm
 export EDITOR=vim
 export BROWSER=/mnt/c/Google/Chrome/Application/chrome.exe
 export BRANCHPREFIX=wh

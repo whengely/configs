@@ -22,5 +22,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.editor": "json",
     "breadcrumbs.enabled": false,
-    "php.suggest.basic": false
+    "php.suggest.basic": false,
+    "window.zoomLevel": -1,
+    "vim.foldfix": true
 }

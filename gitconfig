@@ -78,3 +78,5 @@
   create-pull-request-for-master = "!f() { exec vsts code pr create --auto-complete --delete-source-branch --squash -t master \"$@\";};f"
 	pull-request = "!f() { exec vsts code pr \"$@\"; }; f"
 	repo = "!f() { exec vsts code repo \"$@\"; }; f"
+[init]
+	templatedir = ~/.git-templates

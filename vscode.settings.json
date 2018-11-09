@@ -23,6 +23,6 @@
     "workbench.settings.editor": "json",
     "breadcrumbs.enabled": false,
     "php.suggest.basic": false,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "vim.foldfix": true
 }

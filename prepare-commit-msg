@@ -1,0 +1,18 @@
+#!/bin/bash
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+FORMATTEDNAME=`echo $BRANCH_NAME | cut -d / -f 2 | cut -d - -f 1,2 | tr '[a-z]' '[A-Z]'`
+PROJECT=`echo $FORMATTEDNAME | cut -d - -f 1`
+
+if [ -z "$KNOWN_PROJECTS" ]; then
+	KNOWN_PROJECTS=(CH360) #Space delimited
+fi
+
+echo $KNOWN_PROJECTS >> $1
+
+IS_KNOWN_PROJECT=$(printf "%s\n" "${KNOWN_PROJECTS[@]}" | grep -c "^$PROJECT$")
+
+echo $IS_KNOWN_PROJECT >> $1
+
+if [ -n "$FORMATTEDNAME" ] && [[ $IS_KNOWN_PROJECT -eq 1 ]]; then
+	sed -i -e "1s/^/$FORMATTEDNAME\n/g" "$1"
+fi

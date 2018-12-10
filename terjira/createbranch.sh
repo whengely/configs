@@ -12,7 +12,7 @@ else
     sed -e "s/..$//g" |
     tr "[:upper:]" "[:lower:]" |
     sed -e "s/[\(\)<>-\:]/ /g" | #Replace these characters with spaces
-    sed -e "s/[']//g" | #Replace these characters with nothing
+    sed -e "s/[',]//g" | #Replace these characters with nothing
     tr -s " " | #Collapse spaces
     sed -e "s/[[:space:]]/-/g" | #Convert spaces to -
     sed -e "s/-$//g"` #Remove last - if at end of line

@@ -1,0 +1,59 @@
+<<<<<<< HEAD
+{
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.rulers": [
+        160
+    ],
+    "editor.tabSize": 2,
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.hasSemicolon": false,
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.tabType": "space",
+    "importSorter.importStringConfiguration.quoteMark": "single",
+    "importSorter.importStringConfiguration.trailingComma": "always",
+    "importSorter.sortConfiguration.joinImportPaths": true,
+    "importSorter.generalConfiguration.exclude": ["styled-components.tsx?"],
+    "window.titleBarStyle": "custom",
+    "workbench.editor.enablePreview": false,
+    "explorer.openEditors.visible": 0,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.editor": "json",
+    "breadcrumbs.enabled": false,
+    "php.suggest.basic": false,
+    "window.zoomLevel": 0,
+    "vim.foldfix": true,
+    "scss.validate": false,
+}
+=======
+{
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.rulers": [
+        160
+    ],
+    "editor.tabSize": 2,
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.hasSemicolon": false,
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "importSorter.importStringConfiguration.tabType": "space",
+    "importSorter.importStringConfiguration.quoteMark": "single",
+    "importSorter.importStringConfiguration.trailingComma": "always",
+    "importSorter.sortConfiguration.joinImportPaths": true,
+    "importSorter.generalConfiguration.exclude": ["styled-components.tsx?"],
+    "window.titleBarStyle": "custom",
+    "workbench.editor.enablePreview": false,
+    "explorer.openEditors.visible": 0,
+    "workbench.iconTheme": "material-icon-theme",
+    "breadcrumbs.enabled": false,
+    "window.zoomLevel": 0,
+    "vim.foldfix": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+}
+>>>>>>> 9feb3b011b609e9a11a55833d8963a86a369c91f

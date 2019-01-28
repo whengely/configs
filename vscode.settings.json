@@ -20,10 +20,8 @@
     "workbench.editor.enablePreview": false,
     "explorer.openEditors.visible": 0,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.settings.editor": "json",
     "breadcrumbs.enabled": false,
-    "php.suggest.basic": false,
     "window.zoomLevel": 0,
     "vim.foldfix": true,
-    "scss.validate": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }

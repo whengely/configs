@@ -25,5 +25,6 @@
     "php.suggest.basic": false,
     "window.zoomLevel": 0,
     "vim.foldfix": true,
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.ignoreMissingGitWarning": true
 }

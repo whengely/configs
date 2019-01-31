@@ -64,6 +64,9 @@
 	# Delete the remote version of the current branch 
 	unpublish = "!git push origin :$(git branch-name)"
 
+  # Clone IGS Shit
+  cl = "!git clone igs-vsts@vs-ssh.visualstudio.com:v3/igs-vsts/IGS/$@"
+
 	# Delete any branches that have been merged
 	# See also: https://gist.github.com/robmiller/5133264
 	delete-merged-branches-develop = "!git checkout develop && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
@@ -71,6 +74,7 @@
 
   # Prune remote
 	rpo = remote prune origin
+  prpo = "!f() { exec git pull; exec git rpo; };f"
 
   # If you want pull request aliases to work you need to download the following
   #https://github.com/Microsoft/vsts-cli

@@ -4,9 +4,15 @@
   "editor.fontFamily": "Operator Mono Lig",
   "editor.fontLigatures": true,
   "editor.fontWeight": "100",
-  "editor.fontSize": 14,
-  "editor.rulers": [160],
+  "editor.fontSize": 16,
+  "editor.rulers": [120],
   "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {"language":"typescript", "autoFix": true},
+    {"language":"typescriptreact", "autoFix": true},
+  ],
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
   "importSorter.importStringConfiguration.hasSemicolon": false,
   "importSorter.importStringConfiguration.tabSize": 2,
@@ -82,5 +88,8 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "sync.gist": "9dd54418188406d8fc3be778fd0795bc"
+  "sync.gist": "9dd54418188406d8fc3be778fd0795bc",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

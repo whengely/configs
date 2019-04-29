@@ -11,11 +11,19 @@ else
     cut -c 5- | 
     sed -e "s/..$//g" |
     tr "[:upper:]" "[:lower:]" |
-    sed -e "s/[\(\)<>-\:]/ /g" | #Replace these characters with spaces
-    sed -e "s/[',]//g" | #Replace these characters with nothing
-    tr -s " " | #Collapse spaces
-    sed -e "s/[[:space:]]/-/g" | #Convert spaces to -
-    sed -e "s/-$//g"` #Remove last - if at end of line
+    sed -e "s/[\(\)<>-\:]/ /g" | 
+    sed -e "s/[',]//g" |
+    tr -s " " |
+    sed -e "s/[[:space:]]/-/g" |
+    sed -e "s/-$//g"`
+fi
+
+if [[ -z "$JIRA_USER" ]]; then
+  echo ' THE JIRA_USER environment variable was not found'
+  exit 1
+else
+  jira issue trans $1 "In Dev" >/dev/null
+  jira issue assign $1 $JIRA_USER >/dev/null
 fi
 
 git checkout -b $BRANCHPREFIX/$1-$RESULT

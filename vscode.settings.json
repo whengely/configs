@@ -18,7 +18,7 @@
   "importSorter.importStringConfiguration.tabSize": 2,
   "importSorter.importStringConfiguration.tabType": "space",
   "importSorter.importStringConfiguration.quoteMark": "single",
-  "importSorter.importStringConfiguration.trailingComma": "always",
+  "importSorter.importStringConfiguration.trailingComma": "multiLine",
   "importSorter.sortConfiguration.joinImportPaths": true,
   "importSorter.generalConfiguration.exclude": ["styled-components.tsx?"],
   "window.titleBarStyle": "custom",

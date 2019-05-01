@@ -1,5 +1,5 @@
 [core]
-  autocrlf = true
+  eol = lf 
   pager = cat
 [user]
 	name = Walt Hengely

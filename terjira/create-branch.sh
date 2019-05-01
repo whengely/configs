@@ -15,7 +15,8 @@ else
     sed -e "s/[',]//g" |
     tr -s " " |
     sed -e "s/[[:space:]]/-/g" |
-    sed -e "s/-$//g"`
+    sed -e "s/-$//g" |
+    sed -e "s/\"//g"`
 fi
 
 if [[ -z "$JIRA_USER" ]]; then

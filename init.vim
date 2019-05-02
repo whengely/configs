@@ -27,6 +27,17 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#ale#enabled = 1
 
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+
+" http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
@@ -58,3 +69,6 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
 nnoremap <C-d> :bdelete<CR>
 nnoremap <C-o> :NERDTreeToggle<CR>
+
+autocmd vimenter * NERDTree
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

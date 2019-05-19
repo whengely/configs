@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+B='bfs -L -regextype posix-extended -regex'
+
+CMD="${B} '.*/${1:gs/\//.*\//}'"
+
+echo ${CMD}
+eval ${CMD}

@@ -20,7 +20,7 @@ let g:ale_sign_column_always = 1
 
 let g:airline_powerline_fonts=1
 let g:airline_statusline_ontop=0
-let g:airline_theme='molokai'
+let g:airline_theme='papercolor'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -38,7 +38,6 @@ let g:rg_command = '
 
 command! -bang -nargs=* RG call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-command
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
@@ -62,12 +61,15 @@ Plug 'junegunn/fzf.vim'
 " https://github.com/styled-components/stylelint-processor-styled-components
 call plug#end()
 
+colorscheme PaperColor
+
+command! -nargs=0 AutoFix :CocCommand tsserver.executeAutoFix
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=0 ReloadVim :source ~/.config/nvim/init.vim
 command! -nargs=0 EditConfig :e ~/.config/nvim/init.vim
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap) 
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+map <silent> <<F8>> <Plug>(ale_previous_wrap)
+noremap <C-.> :AutoFix
 nnoremap <C-p> :Files<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprev<CR>

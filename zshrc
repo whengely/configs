@@ -102,6 +102,8 @@ export EDITOR=vim
 export BROWSER=/mnt/c/Google/Chrome/Application/chrome.exe
 export BRANCHPREFIX=wh
 export proj=/mnt/c/a/
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+export JIRA_USER="whengely"
 
 if [ -d "/mnt/c/a/configs" ] ; then   
   PATH="/mnt/c/a/configs/terjira:$PATH" 
@@ -112,6 +114,7 @@ fi
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null' 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND" 
 bindkey -s '^[t' 'vim $(fzf);'
+
 
 alias gb="git branch -a"
 alias vi="nvim"

@@ -57,6 +57,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'NLKNguyen/papercolor-theme'
 " Implement stylelint at some time
 " https://github.com/styled-components/stylelint-processor-styled-components
 call plug#end()
@@ -68,7 +69,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=0 ReloadVim :source ~/.config/nvim/init.vim
 command! -nargs=0 EditConfig :e ~/.config/nvim/init.vim
 
-map <silent> <<F8>> <Plug>(ale_previous_wrap)
+nnoremap <F8> :ALENextWrap<CR>
+inoremap <F8> <ESC>:ALENextWrap<CR>i
 noremap <C-.> :AutoFix
 nnoremap <C-p> :Files<CR>
 nnoremap <Right> :bnext<CR>

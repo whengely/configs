@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ORIGDIR=/mnt/c/OperatorMono
+OUTDIR=/mnt/c/operator-mono-lig
+FONTPATCHER=/mnt/c/nerd-fonts/font-patcher
+
+for file in $ORIGDIR/*.otf
+do
+  "$FONTPATCHER" -w -c --out "$OUTDIR" --progressbars "$file"
+done

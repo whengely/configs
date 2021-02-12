@@ -1,36 +1,40 @@
 [core]
   eol = lf 
   pager = cat
+
 [user]
-	name = Walt Hengely
-	email = whengely@igsenergy.com
+  name = Walt Hengely
+  email = whengely@igsenergy.com
 
 ###############
 # MERGE STUFF #
 ###############
 [merge]
-	tool = bc4
+  tool = bc4
 
 [mergetool]
-	prompt = false
-	keepBackup = false
+  prompt = false
+  keepBackup = false
+
 [mergetool "bc4"]
-	cmd = \"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
+  cmd = \"/mnt/c/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+  trustExitCode = true
 
 ##############
 # DIFF STUFF #
 ##############
 [diff]
-	tool = bc4
+  tool = bc4
+
 [difftool]
-	prompt = false
-	keepBackup = false
+  prompt = false
+  keepBackup = false
 
 [difftool "bc4"]
-	cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\"
+  cmd = \"C:/Program Files/Beyond Compare 4/BCompare.exe\" \"$LOCAL\" \"$REMOTE\"
+
 [difftool "code"]
-	cmd = code --wait --diff $LOCAL $REMOTE
+  cmd = code --wait --diff $LOCAL $REMOTE
 
 ###########
 # ALIASES #
@@ -38,12 +42,17 @@
 
 # you definitely want to use the full package of cmder as your terminal.  Or a real terminal on linux 
 [alias]
-	branch-name = "!git rev-parse --abbrev-ref HEAD"
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  home-name = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
   co = checkout
   c = commit -a
   e = config -e --global
-  dev = "!git checkout develop"
-  master = "!git checkout master"
+  cl = "!git clone igs-vsts@vs-ssh.visualstudio.com:v3/igs-vsts/IGS/$@"
+  home = "!git checkout $(git home-name)"
+  publish = "!git push -u origin $(git branch-name)" 
+  unpublish = "!git push origin :$(git branch-name)"
+  rpo = remote prune origin
+  fetch-home = "!git fetch -u origin $(git home-name):$(git home-name)"
 
   #list log easy to read
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -57,36 +66,23 @@
   ticket = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"wh/$CLEANED\";};f"
   hotfix = "!f() { NAME=\"$@\"; CLEANED=`echo $NAME | sed -e 's/[[:space:]]/-/g' | tr -s '-'`; exec git checkout -b \"hotfix/$CLEANED\";};f"
 
-	# Push the current branch to the remote "origin", and set it to track 
-	# the upstream branch 
-	publish = "!git push -u origin $(git branch-name)" 
-
-	# Delete the remote version of the current branch 
-	unpublish = "!git push origin :$(git branch-name)"
-
-  # Clone IGS Shit
-  cl = "!git clone igs-vsts@vs-ssh.visualstudio.com:v3/igs-vsts/IGS/$@"
-
-	# Delete any branches that have been merged
-	# See also: https://gist.github.com/robmiller/5133264
-	delete-merged-branches-master = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-
-  # Prune remote
-	rpo = remote prune origin
+ # Delete any branches that have been merged
+ # See also: https://gist.github.com/robmiller/5133264
+  delete-merged-branches-master = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
   #Used by a lot below
-  fetch-master = "!git fetch -u origin master:master"
   # Complete common post PR Approval
-  close-branch = "!f() { TOBEDELETED=$(git branch-name); git fetch-master; git rpo; git master; git branch -D \"$TOBEDELETED\";}; f"
+  close-branch = "!f() { TOBEDELETED=$(git branch-name); git fetch-home; git rpo; git home; git branch -D \"$TOBEDELETED\";}; f"
 
-  # Merge dev to branch
-  update-branch = "!f() { git fetch-dev; git merge develop;};f"
-  rebase-branch = "!f() { git fetch-dev; git rebase develop;};f"
+  # Merge home to branch
+  update-branch = "!f() { git fetch-home; git merge $(git home-name);};f"
+  rebase-branch = "!f() { git fetch-dev; git rebase $(git home-name);};f"
 
   # If you want pull request aliases to work you need to download the following
   #https://github.com/Microsoft/vsts-cli
-  create-pull-request-for-master = "!f() { exec vsts code pr create --auto-complete --delete-source-branch -t master \"$@\";};f"
-	pull-request = "!f() { exec vsts code pr \"$@\"; }; f"
-	repo = "!f() { exec vsts code repo \"$@\"; }; f"
+  create-pull-request = "!f() { exec az repos pr create --auto-complete --delete-source-branch -t $(git home-name) \"$@\";};f"
+
+  repo = "!f() { exec az repos \"$@\"; }; f"
+
 [init]
-	templatedir = ~/.git-templates
+  templatedir = ~/.git-templates

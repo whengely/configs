@@ -80,7 +80,7 @@
 
   # If you want pull request aliases to work you need to download the following
   #https://github.com/Microsoft/vsts-cli
-  create-pull-request-for-master = "!f() { exec az repos pr create --auto-complete --delete-source-branch -t $(git home-name) \"$@\";};f"
+  create-pull-request = "!f() { exec az repos pr create --auto-complete --delete-source-branch -t $(git home-name) \"$@\";};f"
 
   repo = "!f() { exec az repos \"$@\"; }; f"
 

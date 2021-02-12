@@ -98,7 +98,7 @@ export NVM_DIR="$HOME/.nvm"
 # For a full list of active aliases, run `alias`.
 #
 export PATH=$PATH:~/lib/vsts-cli/bin:~/.nvm
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=/mnt/c/Google/Chrome/Application/chrome.exe
 export BRANCHPREFIX=wh
 export proj=/mnt/c/a/

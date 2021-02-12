@@ -38,6 +38,8 @@ let g:rg_command = '
 
 command! -bang -nargs=* RG call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
+filetype plugin indent off
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}

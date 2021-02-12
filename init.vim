@@ -56,7 +56,7 @@ Plug 'https://github.com/Galooshi/vim-import-js.git'
 Plug 'bling/vim-bufferline'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'NLKNguyen/papercolor-theme'

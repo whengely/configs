@@ -42,6 +42,7 @@
 
 # you definitely want to use the full package of cmder as your terminal.  Or a real terminal on linux 
 [alias]
+  current-repo = "!basename `git rev-parse --show-toplevel`"
   branch-name = "!git rev-parse --abbrev-ref HEAD"
   home-name = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
   co = checkout
@@ -80,7 +81,7 @@
 
   # If you want pull request aliases to work you need to download the following
   #https://github.com/Microsoft/vsts-cli
-  create-pull-request = "!f() { exec az repos pr create --auto-complete --delete-source-branch -t $(git home-name) \"$@\";};f"
+  create-pull-request = "!f() { exec az repos pr create --auto-complete --delete-source-branch -t $(git home-name) -r $(git current-repo) \"$@\";};f"
 
   repo = "!f() { exec az repos \"$@\"; }; f"
 

@@ -1,0 +1,10 @@
+{
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true,
+  "prettier.eslintIntegration": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "json"
+  ]
+}

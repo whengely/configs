@@ -10,13 +10,11 @@ set nowritebackup
 set hidden
 set background=dark
 set encoding=UTF-8
+set updatetime=300
+set shortmess+=c
+set signcolumn=number
 
-let g:deoplete#enable_at_startup = 1
-
-let g:ale_completion_enabled = 1
-let g:ale_fixers = ['prettier', 'eslint']
-let g:ale_linters = {'typescript': ['eslint','prettier'], 'typescriptreact': ['eslint','prettier']}
-let g:ale_sign_column_always = 1
+let mapleader = ","
 
 let g:airline_powerline_fonts=1
 let g:airline_statusline_ontop=0
@@ -42,10 +40,19 @@ filetype plugin indent off
 
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'w0rp/ale'
+" https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
+" :help ale
+Plug 'dense-analysis/ale'
+
+" Language Server Protocol
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+" Frontend
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jparise/vim-graphql'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/Shougo/denite.nvim.git'
@@ -57,24 +64,57 @@ Plug 'bling/vim-bufferline'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'NLKNguyen/papercolor-theme'
+"
 " Implement stylelint at some time
 " https://github.com/styled-components/stylelint-processor-styled-components
 call plug#end()
 
 colorscheme PaperColor
 
-command! -nargs=0 AutoFix :CocCommand tsserver.executeAutoFix
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command! -nargs=0 ReloadVim :source ~/.config/nvim/init.vim
-command! -nargs=0 EditConfig :e ~/.config/nvim/init.vim
+" Source Vim configuration file and install plugins  ,1
+nnoremap <silent><leader>1 :source ~/configs/init.vim \| :PlugInstall<CR>
 
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-emoji']
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader><F2> <Plug>(coc-rename)
+
+" Tab complete with COC
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Format
+nmap <leader>f   :CocCommand prettier.formatFile<CR>
+
+inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <C-p> :Files<CR>
 nnoremap <F8> :ALENextWrap<CR>
 inoremap <F8> <ESC>:ALENextWrap<CR>i
-noremap <C-.> :AutoFix
-nnoremap <C-p> :Files<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprev<CR>
 nnoremap <Down> :bdelete<CR>

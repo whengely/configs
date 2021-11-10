@@ -44,11 +44,12 @@
 [alias]
   current-repo = "!basename `git rev-parse --show-toplevel`"
   branch-name = "!git rev-parse --abbrev-ref HEAD"
+  ticket-name = "!git branch-name | cut -d / -f 2 | cut -d - -f 1-2"
   home-name = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
   co = checkout
   c = commit -a
   e = config -e --global
-  cl = "!git clone igs-vsts@vs-ssh.visualstudio.com:v3/igs-vsts/IGS/$@"
+  cl = "!git clone git@ssh.dev.azure.com:v3/igs-vsts/IGS/$@"
   home = "!git checkout $(git home-name)"
   publish = "!git push -u origin $(git branch-name)" 
   unpublish = "!git push origin :$(git branch-name)"

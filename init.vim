@@ -67,12 +67,21 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'glepnir/dashboard-nvim'
+
 "
 " Implement stylelint at some time
 " https://github.com/styled-components/stylelint-processor-styled-components
 call plug#end()
 
 colorscheme PaperColor
+" dashboard-vim
+let g:dashboard_default_executive = 'fzf'
+let g:dashboard_preview_command = 'cat'
+let g:dashboard_preview_pipeline = 'lolcat --animate --spread 12 --speed 35 --freq .2 --duration 6'
+let g:dashboard_preview_file = '~/.config/nvim/game-on-anon'
+let g:dashboard_preview_file_height = 16
+let g:dashboard_preview_file_width = 80
 
 " Source Vim configuration file and install plugins  ,1
 nnoremap <silent><leader>1 :source ~/configs/init.vim \| :PlugInstall<CR>
@@ -100,7 +109,15 @@ inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
   \ coc#refresh()
+
+" Check if backspace was just pressed      
+function! s:check_back_space() abort                    
+  let col = col('.') - 1    
+  return !col || getline('.')[col - 1]  =~# '\s'    
+endfunction   
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)

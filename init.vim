@@ -87,7 +87,7 @@ let g:dashboard_preview_file_width = 80
 nnoremap <silent><leader>1 :source ~/configs/init.vim \| :PlugInstall<CR>
 
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-emoji']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-emoji', 'coc-graphql']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif

@@ -1,7 +1,7 @@
 set nu
 set relativenumber
 set pastetoggle=<F2>
-set tabstop=1
+set tabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
@@ -13,8 +13,12 @@ set encoding=UTF-8
 set updatetime=300
 set shortmess+=c
 set signcolumn=number
+" Use SHIFT when pasting
+set mouse=a
+set textwidth=120
+set formatoptions+=t
 
-let mapleader = ","
+let mapleader = "\<Space>"
 
 let g:airline_powerline_fonts=1
 let g:airline_statusline_ontop=0
@@ -35,6 +39,9 @@ let g:rg_command = '
   \ -g "!{.git,node_modules,vendor}/*" '
 
 command! -bang -nargs=* RG call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+" Delete empty space from the end of lines on every save
+autocmd BufWritePre * :%s/\s\+$//e
 
 filetype plugin indent off
 
@@ -87,7 +94,7 @@ let g:dashboard_preview_file_width = 80
 nnoremap <silent><leader>1 :source ~/configs/init.vim \| :PlugInstall<CR>
 
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-emoji', 'coc-graphql']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-html', 'coc-css', 'coc-emoji', 'coc-graphql', 'coc-react-refactor', 'coc-styled-components']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
@@ -105,19 +112,19 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader><F2> <Plug>(coc-rename)
 
 " Tab complete with COC
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ coc#refresh()
 
-" Check if backspace was just pressed      
-function! s:check_back_space() abort                    
-  let col = col('.') - 1    
-  return !col || getline('.')[col - 1]  =~# '\s'    
-endfunction   
+" Check if backspace was just pressed
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -128,11 +135,49 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Format
 nmap <leader>f   :CocCommand prettier.formatFile<CR>
 
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+let g:dashboard_custom_section={
+\ 'session': {
+\   'description': ['Last session        SPC bb'],
+\   'command': 'SessionLoad'
+\ },
+\ 'find_file': {
+\   'description': ['Find File              C-p'],
+\   'command': 'DashboardFindFile'
+\ },
+\ 'find_word': {
+\   'description': ['Find Word          SPC C-p'],
+\   'command': 'DashboardFindWord'
+\ },
+\ 'history': {
+\   'description': ['History             SPC hh'],
+\   'command': 'DashboardFindHistory'
+\ },
+\ 'new_file': {
+\   'description': ['New File            SPC nf'],
+\   'command': 'DashboardNewFile'
+\ }
+\}
+
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nnoremap <Silent> <Leader>hh :DashboardFindHistory<CR>
+
+
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <C-p> :Files<CR>
+nnoremap <Leader><C-p> :Rg<CR>
 nnoremap <F8> :ALENextWrap<CR>
 inoremap <F8> <ESC>:ALENextWrap<CR>i
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprev<CR>
 nnoremap <Down> :bdelete<CR>
+nnoremap <C-Down> :bdelete!<CR>
 nnoremap <C-o> :NERDTreeToggle<CR>

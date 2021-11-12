@@ -65,7 +65,7 @@ plugins=(
   ssh-agent gitfast npm screen
 )
 
-zstyle :omz:plugins:ssh-agent identities id_rsa whengelygmail_id_rsa
+zstyle :omz:plugins:ssh-agent identities github-id_rsa whengely-igs.id_rsa
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -105,14 +105,14 @@ export proj=/mnt/c/a/
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export JIRA_USER="whengely"
 
-if [ -d "/mnt/c/a/configs" ] ; then   
-  PATH="/mnt/c/a/configs/terjira:$PATH" 
+if [ -d "/mnt/c/a/configs" ] ; then
+  PATH="/mnt/c/a/configs/terjira:$PATH"
 fi
 
 # http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null' 
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND" 
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bindkey -s '^[t' 'vim $(fzf);'
 
 

@@ -6,5 +6,7 @@
     "javascript",
     "typescript",
     "json"
-  ]
+  ],
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "typescript.autoClosingTags": true
 }

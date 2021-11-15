@@ -144,23 +144,23 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 let g:dashboard_custom_section={
 \ 'session': {
-\   'description': ['Last session        SPC bb'],
+\   'description': ['🕚   Last session                 SPC bb'],
 \   'command': 'SessionLoad'
 \ },
 \ 'find_file': {
-\   'description': ['Find File              C-p'],
+\   'description': ['🔍📝 Find File                       C-p'],
 \   'command': 'DashboardFindFile'
 \ },
 \ 'find_word': {
-\   'description': ['Find Word          SPC C-p'],
+\   'description': ['🔍🎫 Find Word                   SPC C-p'],
 \   'command': 'DashboardFindWord'
 \ },
 \ 'history': {
-\   'description': ['History             SPC hh'],
+\   'description': ['📜   History                      SPC hh'],
 \   'command': 'DashboardFindHistory'
 \ },
 \ 'new_file': {
-\   'description': ['New File            SPC nf'],
+\   'description': ['🆕   New File                     SPC nf'],
 \   'command': 'DashboardNewFile'
 \ }
 \}
@@ -168,7 +168,6 @@ let g:dashboard_custom_section={
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
 nnoremap <Silent> <Leader>hh :DashboardFindHistory<CR>
-
 
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 inoremap <silent><expr> <c-space> coc#refresh()

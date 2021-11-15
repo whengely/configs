@@ -30,6 +30,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#ale#enabled = 1
 
 let NERDTreeMinimalUI = 1
+let NERDTreeShowHidden=1
 
 " http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 let g:rg_command = '

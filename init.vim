@@ -17,6 +17,7 @@ set signcolumn=number
 set mouse=a
 set textwidth=120
 set formatoptions+=t
+set nohlsearch
 
 let mapleader = "\<Space>"
 

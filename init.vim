@@ -31,6 +31,7 @@ let g:airline#extensions#ale#enabled = 1
 
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden=1
+let NERDTreeWinSize=55
 
 " http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 let g:rg_command = '
@@ -145,7 +146,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 let g:dashboard_custom_section={
 \ 'session': {
-\   'description': ['🕚   Last session                 SPC bb'],
+\   'description': ['🕚   Last session                 SPC sl'],
 \   'command': 'SessionLoad'
 \ },
 \ 'find_file': {
@@ -170,7 +171,23 @@ nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
 nnoremap <Silent> <Leader>hh :DashboardFindHistory<CR>
 
+nmap <leader>oi :CocCommand tsserver.organizeImports<cr>
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+nnoremap <A-L>  :NERDTreeFind<cr>
+
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader><C-p> :Rg<CR>

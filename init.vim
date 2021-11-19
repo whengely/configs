@@ -78,6 +78,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'glepnir/dashboard-nvim'
+Plug 'moll/vim-bbye'
 
 "
 " Implement stylelint at some time
@@ -196,6 +197,6 @@ nnoremap <F8> :ALENextWrap<CR>
 inoremap <F8> <ESC>:ALENextWrap<CR>i
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprev<CR>
-nnoremap <Down> :bdelete<CR>
-nnoremap <C-Down> :bdelete!<CR>
+nnoremap <Down> :Bdelete<CR>
+nnoremap <C-Down> :Bdelete!<CR>
 nnoremap <C-o> :NERDTreeToggle<CR>

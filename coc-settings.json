@@ -1,12 +1,15 @@
 {
   "eslint.run": "onSave",
   "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
   "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
     "json"
   ],
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
-  "typescript.autoClosingTags": true
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.autoClosingTags": true,
+  "javascript.autoClosingTags": true
 }

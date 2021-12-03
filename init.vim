@@ -131,13 +131,14 @@ endfunction
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac   <Plug>(coc-codeaction)
 
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf   <Plug>(coc-fix-current)
+nmap <leader>qq   :CocFix<CR>
 
 " Format
-nmap <leader>f   :CocCommand prettier.formatFile<CR>
+nmap <leader>f    :CocCommand prettier.formatFile<CR>
 
 
 " Use ctrl-[hjkl] to select the active split!
@@ -198,5 +199,5 @@ inoremap <F8> <ESC>:ALENextWrap<CR>i
 nnoremap <Right> :bnext<CR>
 nnoremap <Left> :bprev<CR>
 nnoremap <Down> :Bdelete<CR>
-nnoremap <C-Down> :Bdelete!<CR>
+nnoremap <Leader><Down> :Bdelete!<CR>
 nnoremap <C-o> :NERDTreeToggle<CR>

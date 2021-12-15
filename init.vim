@@ -19,6 +19,18 @@ set textwidth=120
 set formatoptions+=t
 set nohlsearch
 
+set autoread
+" Trigger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+  \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 let mapleader = "\<Space>"
 
 let g:airline_powerline_fonts=1
@@ -175,6 +187,7 @@ nmap <Leader>sl :<C-u>SessionLoad<CR>
 nnoremap <Silent> <Leader>hh :DashboardFindHistory<CR>
 
 nmap <leader>oi :CocCommand tsserver.organizeImports<cr>
+nmap <leader>rt :CocCommand tsserver.restart<cr>
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 

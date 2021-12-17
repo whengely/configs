@@ -18,6 +18,11 @@ set mouse=a
 set textwidth=120
 set formatoptions+=t
 set nohlsearch
+set foldenable
+set foldmethod=syntax
+set foldnestmax=5
+set foldcolumn=1
+set foldlevel=2
 
 set autoread
 " Trigger `autoread` when files changes on disk

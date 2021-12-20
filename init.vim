@@ -85,8 +85,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/Shougo/denite.nvim.git'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'https://github.com/scrooloose/nerdtree.git'
-Plug 'https://github.com/Galooshi/vim-import-js.git'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
+Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -255,9 +255,10 @@ function! s:show_documentation()
   endif
 endfunction
 
-nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
-nnoremap <A-L>  :NERDTreeFind<cr>
-nnoremap <silent> gb :BufferLinePick<CR>
+nnoremap <Leader>ic         :ImportCost<CR>
+nmap <Leader>r              :NERDTreeFocus<cr>R<c-w><c-p>
+nnoremap <A-L>              :NERDTreeFind<cr>
+nnoremap <silent>gb         :BufferLinePick<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader><C-p> :Rg<CR>

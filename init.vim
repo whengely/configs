@@ -22,7 +22,7 @@ set foldenable
 set foldmethod=syntax
 set foldnestmax=5
 set foldcolumn=1
-set foldlevel=2
+set foldlevelstart=99
 
 set autoread
 " Trigger `autoread` when files changes on disk
@@ -255,7 +255,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <Leader>ic         :ImportCost<CR>
+nnoremap <Leader>gic         :ImportCost<CR>
 nmap <Leader>r              :NERDTreeFocus<cr>R<c-w><c-p>
 nnoremap <A-L>              :NERDTreeFind<cr>
 nnoremap <silent>gb         :BufferLinePick<CR>
@@ -269,3 +269,4 @@ nnoremap <Left> :bprev<CR>
 nnoremap <Down> :Bdelete<CR>
 nnoremap <Leader><Down> :Bdelete!<CR>
 nnoremap <C-o> :NERDTreeToggle<CR>
+nnoremap <Leader><C-Down> :bufdo bd<CR>

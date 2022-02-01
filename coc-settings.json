@@ -11,5 +11,6 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.autoClosingTags": true,
-  "javascript.autoClosingTags": true
+  "javascript.autoClosingTags": true,
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

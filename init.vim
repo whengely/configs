@@ -94,6 +94,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'glepnir/dashboard-nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'moll/vim-bbye'
+"Plug 'neovim/nvim-lspconfig' "also needs npm i -g vscode-langservers-extracted
 
 "
 " Implement stylelint at some time
@@ -194,7 +195,7 @@ function! s:check_back_space() abort
 endfunction
 
 " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <<CR>> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac   <Plug>(coc-codeaction)
@@ -240,8 +241,8 @@ nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
 nnoremap <Silent> <Leader>hh :DashboardFindHistory<CR>
 
-nmap <leader>oi :CocCommand tsserver.organizeImports<cr>
-nmap <leader>rt :CocCommand tsserver.restart<cr>
+nmap <leader>oi :CocCommand tsserver.organizeImports<<CR>>
+nmap <leader>rt :CocCommand tsserver.restart<<CR>>
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -255,18 +256,19 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <Leader>gic         :ImportCost<CR>
-nmap <Leader>r              :NERDTreeFocus<cr>R<c-w><c-p>
-nnoremap <A-L>              :NERDTreeFind<cr>
-nnoremap <silent>gb         :BufferLinePick<CR>
+nnoremap <Leader>so               :CocCommand workspace.showOutput<CR>
+nnoremap <Leader>gic              :ImportCost<CR>
+nmap <Leader>r                    :NERDTreeFocus<<CR>>R<c-w><c-p>
+nnoremap <A-L>                    :NERDTreeFind<<CR>>
+nnoremap <silent>gb               :BufferLinePick<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader><C-p> :Rg<CR>
-nnoremap <F8> :ALENextWrap<CR>
-inoremap <F8> <ESC>:ALENextWrap<CR>i
-nnoremap <Right> :bnext<CR>
-nnoremap <Left> :bprev<CR>
-nnoremap <Down> :Bdelete<CR>
-nnoremap <Leader><Down> :Bdelete!<CR>
-nnoremap <C-o> :NERDTreeToggle<CR>
-nnoremap <Leader><C-Down> :bufdo bd<CR>
+nnoremap <C-p>                    :Files<CR>
+nnoremap <Leader><C-p>            :Rg<CR>
+nnoremap <F8>                     :ALENextWrap<CR>
+inoremap <F8>                     <ESC>:ALENextWrap<CR>i
+nnoremap <Right>                  :bnext<CR>
+nnoremap <Left>                   :bprev<CR>
+nnoremap <Down>                   :Bdelete<CR>
+nnoremap <Leader><Down>           :Bdelete!<CR>
+nnoremap <C-o>                    :NERDTreeToggle<CR>
+nnoremap <Leader><C-Down>         :bufdo bd<CR>

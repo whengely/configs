@@ -91,10 +91,13 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'glepnir/dashboard-nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'moll/vim-bbye'
+Plug 'tpope/vim-commentary'
 "Plug 'neovim/nvim-lspconfig' "also needs npm i -g vscode-langservers-extracted
 
 "
@@ -231,6 +234,9 @@ function! s:show_documentation()
   endif
 endfunction
 
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " https://github.com/neoclide/coc.nvim/wiki/Debug-language-server#using-output-channel
 nnoremap <Leader>so               :CocCommand workspace.showOutput<CR>
 nnoremap <Leader>gic              :ImportCost<CR>
@@ -249,3 +255,4 @@ nnoremap <Leader><Down>           :Bdelete!<CR>
 nnoremap <C-o>                    :NERDTreeToggle<CR>
 nnoremap <Leader><C-Down>         :bufdo bd<CR>
 nnoremap <Leader>sq               :Wc<CR>
+nnoremap <Leader>focus            :Goyo<CR>

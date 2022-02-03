@@ -12,5 +12,6 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.autoClosingTags": true,
   "javascript.autoClosingTags": true,
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "json.execArgv": ["--nolazy", "--inspect-brk=6045"]
 }

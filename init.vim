@@ -59,6 +59,7 @@ let g:rg_command = '
   \ -g "!{.git,node_modules,vendor}/*" '
 
 command! -bang -nargs=* RG call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+command Wc write | bdelete
 
 " Delete empty space from the end of lines on every save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -119,35 +120,9 @@ endif
 lua << EOF
 require("bufferline").setup{
   options = {
-    numbers = "ordinal",
-    max_name_length = 40,
-    tab_size = 40,
-    custom_areas = {
-      right = function()
-        local result = {}
-        local error = vim.diagnostic.get(0, [[Error]])
-        local warning = vim.diagnostic.get(0, [[Warning]])
-        local info = vim.diagnostic.get(0, [[Information]])
-        local hint = vim.diagnostic.get(0, [[Hint]])
-
-        if error ~= 0 then
-          table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-        end
-
-        if warning ~= 0 then
-          table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-        end
-
-        if hint ~= 0 then
-          table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-        end
-
-        if info ~= 0 then
-          table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
-        end
-        return result
-      end
-    }
+    max_name_length = 20,
+    tab_size = 25,
+    diagnostics = "coc"
   }
 }
 EOF
@@ -256,10 +231,11 @@ function! s:show_documentation()
   endif
 endfunction
 
+" https://github.com/neoclide/coc.nvim/wiki/Debug-language-server#using-output-channel
 nnoremap <Leader>so               :CocCommand workspace.showOutput<CR>
 nnoremap <Leader>gic              :ImportCost<CR>
-nmap <Leader>r                    :NERDTreeFocus<<CR>>R<c-w><c-p>
-nnoremap <A-L>                    :NERDTreeFind<<CR>>
+nmap <Leader>r                    :NERDTreeFocus<CR>R<c-w><c-p>
+nnoremap <A-L>                    :NERDTreeFind<CR>
 nnoremap <silent>gb               :BufferLinePick<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <C-p>                    :Files<CR>
@@ -272,3 +248,4 @@ nnoremap <Down>                   :Bdelete<CR>
 nnoremap <Leader><Down>           :Bdelete!<CR>
 nnoremap <C-o>                    :NERDTreeToggle<CR>
 nnoremap <Leader><C-Down>         :bufdo bd<CR>
+nnoremap <Leader>sq               :Wc<CR>

@@ -75,11 +75,15 @@ Plug 'dense-analysis/ale'
 " Language Server Protocol
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 " Frontend
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jparise/vim-graphql'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

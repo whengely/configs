@@ -241,6 +241,7 @@ endfunction
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+let g:goyo_width 120
 
 " https://github.com/neoclide/coc.nvim/wiki/Debug-language-server#using-output-channel
 nnoremap <Leader>so               :CocCommand workspace.showOutput<CR>

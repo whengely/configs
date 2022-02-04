@@ -262,8 +262,11 @@ nnoremap <Leader><C-Down>         :bufdo bd<CR>
 nnoremap <Leader>sq               :Wc<CR>
 nnoremap <Leader>focus            :Goyo<CR>
 
+nnoremap <Leader><F12>            :Git c<CR>
 nnoremap <Leader>ticket           :Git ticket
 nnoremap <Leader>diff             :Git diff<CR>
-nnoremap <Leader>close            :Git close-branch
-nnoremap <Leader>blame            :Git blame
-nnoremap <Leader>pr               :Git create-pull-request
+nnoremap <Leader>close            :Git close-branch<CR>
+nnoremap <Leader>blame            :Git blame<CR>
+nnoremap <Leader>pr               :Git create-pull-request<CR>
+nnoremap <Leader>pub              :Git publish<CR>
+nnoremap <Leader>push             :Git push<CR>

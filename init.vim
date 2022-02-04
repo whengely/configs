@@ -23,6 +23,7 @@ set foldmethod=syntax
 set foldnestmax=5
 set foldcolumn=1
 set foldlevelstart=99
+set cursorline
 
 set autoread
 " Trigger `autoread` when files changes on disk
@@ -260,3 +261,9 @@ nnoremap <C-o>                    :NERDTreeToggle<CR>
 nnoremap <Leader><C-Down>         :bufdo bd<CR>
 nnoremap <Leader>sq               :Wc<CR>
 nnoremap <Leader>focus            :Goyo<CR>
+
+nnoremap <Leader>ticket           :Git ticket
+nnoremap <Leader>diff             :Git diff<CR>
+nnoremap <Leader>close            :Git close-branch
+nnoremap <Leader>blame            :Git blame
+nnoremap <Leader>pr               :Git create-pull-request
